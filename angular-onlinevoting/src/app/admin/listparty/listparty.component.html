@@ -1,0 +1,28 @@
+<div class="main">
+    <h1>List Of Party</h1>
+    <div class="left-panel">
+        <table border="1" class="table">
+            <tr>
+                <td>Party Logo</td>
+                <th>Party Name</th>
+                <th>Party Candidate</th>
+                <th>Operation</th>
+            </tr>
+            <tr *ngFor="let party of allParty">
+                <td>
+                    <img [src]="party?.partyLogo">
+                </td>
+                <td>
+                    {{party?.partyName}}
+                </td>
+                <td>
+                    {{party?.partyLeaderName}}
+                </td>
+                <td>
+                    <button (click)="onEdit(party)">Edit</button>
+                    <button (click)="onDelete(party)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

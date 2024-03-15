@@ -1,0 +1,15 @@
+<div class="main">
+    <div *ngIf="user && user?.status === 'voted'">
+        You Already Voted
+    </div>
+    <div *ngIf="user && user?.status === null" class="party">
+        <div *ngFor="let party of allParty">
+            <img [src]="party?.partyLogo"><input type="radio" class="radio-btn" [name]="party?.partyName" [value]="party?.partyId"
+                [(ngModel)]="selectedParty" /> {{party?.partyLeaderName}} ({{party?.partyName}})
+            <br />
+        </div>
+        
+            <button (click)="submit()" id="btnn">Submit</button>
+       
+    </div>
+</div>

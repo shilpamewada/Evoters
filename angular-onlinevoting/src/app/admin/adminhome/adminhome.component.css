@@ -1,0 +1,8 @@
+.main{
+    background-image: url(../../../assets/home.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 92vh;
+    width: 100%;
+}

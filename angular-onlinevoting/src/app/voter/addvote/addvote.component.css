@@ -1,0 +1,52 @@
+img {
+    width: 200px;
+    height: 100px;
+    padding-top: 50px;
+}
+
+.main {
+    background-image: url(../../../assets/flagimg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    /* height: 100vh; */
+}
+.party{
+    margin-top: 10px;
+}
+.party img{
+    padding-right: 60px;
+    margin-bottom: 20px;
+}
+
+
+#btnn {
+    background: rgb(255, 255, 255);
+    color: rgb(29, 161, 51);
+    width: 300px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 150px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+#btnn:hover {
+    background: orangered;
+    color: black;
+    border: 1px solid black;
+    transition: .3s;
+}
+.radio-btn input[type="radio"] {
+    transform: scale(0.7); 
+    margin-right: 5px; 
+    vertical-align: middle;
+    position: relative;
+}
