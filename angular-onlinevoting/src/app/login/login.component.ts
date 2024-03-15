@@ -13,36 +13,46 @@ export class LoginComponent {
   voterCardNumber: string = '';
   email: string = '';
   password: string = '';
-  userVotingCardNumber: string = '';
-  errormessage: string = '';
-  userEmail: string = '';
-  userPassword: string = '';
+  errorMessage:string='';
+
   constructor(
     private service: VoterService
-  ) { }
+  ) {}
 
   login(): void {
-    // if (this.email === "" || this.userEmail === undefined) {
-    //   this.errormessage = "Email Addresss Can Not Blank";
-    //   return;
-    // }
-
-    // this.errormessage = "";
-
-    // if (this.password === "" || this.userPassword === undefined) {
-    //   this.errormessage = "Password is blank";
-    //   return;
-    // }
-
-    // if (this.voterCardNumber === "" || this.userVotingCardNumber === undefined) {
-    //   this.errormessage = "Voting Number Is Blank";
-    //   return;
-    // }
-
     const body: any = {
       "userPassword": this.password
     }
     let requstType: any = null;
+    let flag = 0;
+    if (this.loginType === 'voter') {
+      if (this.voterCardNumber === '') {
+        this.errorMessage = 'Voting Number should Not Blank';
+        document.getElementById('errordiv')?.scrollIntoView(true);
+        return;
+      }
+
+      if (this.password === '') {
+        this.errorMessage = 'Password should Not Blank';
+        document.getElementById('errordiv')?.scrollIntoView(true);
+        return;
+      }
+    
+    } else if (this.loginType === 'admin'){
+      if (this.email === '') {
+        this.errorMessage = 'Email Id should Not Blank';
+        document.getElementById('errordiv')?.scrollIntoView(true);
+        return;
+      }
+      if (this.password === '') {
+        this.errorMessage = 'Password should Not Blank';
+        document.getElementById('errordiv')?.scrollIntoView(true);
+        return;
+      }
+    }
+    if (flag === 1) {
+      return;
+    }
     if (this.loginType === 'voter') {
       body.userVotingCardNumber = this.voterCardNumber;
       requstType = this.service.signInByCard(body);
