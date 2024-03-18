@@ -25,34 +25,30 @@ export class LoginComponent {
     }
     let requstType: any = null;
     let flag = 0;
+    
     if (this.loginType === 'voter') {
       if (this.voterCardNumber === '') {
-        this.errorMessage = 'Voting Number should Not Blank';
-        document.getElementById('errordiv')?.scrollIntoView(true);
+        // alert('Voter card should not be blank');
+        this.errorMessage = 'Voter card should not be blank';
         return;
       }
-
       if (this.password === '') {
-        this.errorMessage = 'Password should Not Blank';
-        document.getElementById('errordiv')?.scrollIntoView(true);
+        this.errorMessage = 'Password should not be blank';
         return;
       }
-    
     } else if (this.loginType === 'admin'){
       if (this.email === '') {
-        this.errorMessage = 'Email Id should Not Blank';
-        document.getElementById('errordiv')?.scrollIntoView(true);
+       //  alert('Email address should not be blank');
+        this.errorMessage = 'Email address should not be blank';
         return;
       }
       if (this.password === '') {
-        this.errorMessage = 'Password should Not Blank';
-        document.getElementById('errordiv')?.scrollIntoView(true);
+        this.errorMessage = 'Password should not be blank';
         return;
       }
     }
-    if (flag === 1) {
-      return;
-    }
+    this.errorMessage = '';
+
     if (this.loginType === 'voter') {
       body.userVotingCardNumber = this.voterCardNumber;
       requstType = this.service.signInByCard(body);
@@ -63,7 +59,9 @@ export class LoginComponent {
     requstType.pipe(take(1)).subscribe((response: any) => {
       console.log('>>>>', response);
       if (response?.userRole === 'voter' && response?.activateAccount === false) {
-        alert('Your account is not active, Please try after some time');
+        // alert('Your account is not active, Please try after some time');
+        this.errorMessage = 'Your account is not active, Please try after some time';
+
         return;
       }
       this.service.storeLoggedInUser(response);
@@ -76,5 +74,8 @@ export class LoginComponent {
         this.service.navigateToLink('adminhome');
       }
     })
+  }
+  clearMessage(): void {
+    this.errorMessage = '';
   }
 }
