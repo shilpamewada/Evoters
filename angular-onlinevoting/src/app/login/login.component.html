@@ -1,12 +1,12 @@
 <div class="bodyy">
     <div class="form">
         <h2>Login Here</h2>
-        <div *ngIf="errormessage && errormessage !== ''" class="error" id="erroediv">
-            {{errormessage}}
+        <div *ngIf="errorMessage && errorMessage !== ''" class="error" id="erroediv">
+            {{errorMessage}}
         </div>
         <div class="radiobtn">
-            Voter <input type="radio" value="voter" name="voter" [(ngModel)]="loginType" />
-            Admin <input type="radio" value="admin" name="admin" [(ngModel)]="loginType" />
+            Voter <input type="radio" value="voter" name="voter" [(ngModel)]="loginType" (click)="clearMessage()" />
+            Admin <input type="radio" value="admin" name="admin" [(ngModel)]="loginType" (click)="clearMessage()" />
         </div>
         <div *ngIf="loginType === 'voter'">
             <div class="voterform">
