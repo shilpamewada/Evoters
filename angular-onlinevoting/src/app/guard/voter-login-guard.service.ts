@@ -1,22 +1,26 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Injectable, inject } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 
 @Injectable(
 )
-export class VoterLoginGuardService implements CanActivate {
-  constructor(public router: Router) {
-  }
+export class VoterLoginGuardService {
+    
+    constructor(private router: Router) { }
 
-  canActivate(): boolean {
-      if (!this.isAuthenticated()) {
-          this.router.navigate(['/login']);
-          return false;
-      } else {
-          return true;
-      }
-  }
+    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        if (!this.isAuthenticated()) {
+            this.router.navigate(['/login']);
+            return false;
+        } else {
+            return true;
+        }
 
-  isAuthenticated() {
-      return (localStorage.getItem('role') === 'voter');
-  }
+    }
+    isAuthenticated(): boolean {
+        return (localStorage.getItem('role') === 'voter');
+    }
+}
+
+export const AuthGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
+    return inject(VoterLoginGuardService).canActivate(next, state);
 }
