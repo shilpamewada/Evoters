@@ -15,24 +15,26 @@ import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { ListvoterComponent } from './admin/listvoter/listvoter.component';
 import { ResultComponent } from './admin/result/result.component';
 import { EditVoterComponent } from './voter/edit-voter/edit-voter.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AppWorkComponent } from './app-work/app-work.component';
 
 const routes: Routes = [
-  {path:'',component:ApphomeComponent},
+  { path: '', component: ApphomeComponent },
   { path: 'login', component: LoginComponent },
-  
   { path: 'voterhome', component: VoterhomeComponent, canActivate: [VoterLoginGuardService] },
   { path: 'voteadd', component: AddvoteComponent, canActivate: [VoterLoginGuardService] },
   { path: 'adminaddparty', component: AddpartyComponent, canActivate: [AdminLoginGuardService] },
   { path: 'adminlistparty', component: ListpartyComponent, canActivate: [AdminLoginGuardService] },
   { path: 'adminhome', component: AdminhomeComponent, canActivate: [AdminLoginGuardService] },
-  { path: 'adminlistvoter', component:ListvoterComponent, canActivate: [AdminLoginGuardService] },
-  {path:'electionresult',component:ResultComponent,canActivate:[AdminLoginGuardService]},
+  { path: 'adminlistvoter', component: ListvoterComponent, canActivate: [AdminLoginGuardService] },
+  { path: 'electionresult', component: ResultComponent, canActivate: [AdminLoginGuardService] },
   { path: 'contact', component: ContactusComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'aboutus', component: AboutusComponent },
-  {
-    path: 'editvoter', component: EditVoterComponent, canActivate: [AdminLoginGuardService]},
-  { path: '**', redirectTo: '' }
+  { path: 'logout', component: LogoutComponent },
+  { path: 'works', component: AppWorkComponent },
+  { path: 'editvoter', component: EditVoterComponent, canActivate: [AdminLoginGuardService] },
+  { path: '**', redirectTo: '' } // Handle any other routes or 404
 ];
 
 @NgModule({

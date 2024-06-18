@@ -1,0 +1,23 @@
+.feature-block i {
+    font-size: 4em; /* Increase the size of icons */
+    color: #007bff; /* Change the color of icons to blue (#007bff) */
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Ensure the text is visible on the images */
+    background-color: transparent !important; /* Remove background color from carousel caption */
+}
+
+footer {
+    background-color: #98c2ec; /* Background color for the footer */
+    padding: 20px 0; /* Padding for top and bottom */
+}
+
+footer a {
+    color: #000000; /* Footer link color */
+}

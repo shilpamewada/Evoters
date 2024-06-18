@@ -1,22 +1,57 @@
+/* Custom styles for the About Us component */
 
-  .textleft{
-    color: orangered;
-    margin-left: 500px;
-  }
-  img{
-    width: 800px;
-    height: 300px;
-  }
-  .text{
-    color: blue;
-    
-  }
-  .text1{
-    color: green;
-  }
-  .mission{
-    margin-top: -20px;
-  }
-  .vision{
-    margin-top: -40px;
-  }
+body {
+  font-family: Arial, sans-serif; /* Set default font family */
+  line-height: 1.6; /* Improved line spacing for readability */
+  background-color: #e9f5fe; /* Light blue background color */
+  color: #333; /* Main text color */
+}
+
+.textleft {
+  color: #007bff; /* Blue color for main headings */
+  font-size: 36px; /* Larger font size for main headings */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+.my {
+  color: #6c757d; /* Gray color for regular text */
+  font-size: 18px; /* Font size for regular text */
+}
+
+.text {
+  color: #28a745; /* Green color for section headings */
+  font-size: 30px; /* Larger font size for section headings */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+.main {
+  color: #343a40; /* Dark color for main content */
+  font-size: 20px; /* Font size for main content */
+}
+
+.text1 {
+  color: #dc3545; /* Red color for section headings */
+  font-size: 30px; /* Larger font size for section headings */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+.img {
+  text-align: center; /* Center align image */
+  margin-top: 20px; /* Space above image */
+  margin-bottom: 20px; /* Space below image */
+}
+
+.img img {
+  max-width: 100%; /* Ensure image does not exceed container width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for image */
+}
+
+.mission, .vision {
+  margin-top: 30px; /* Space above mission and vision sections */
+}
+
+.vision ul {
+  margin-left: 20px; /* Indent list items in vision section */
+}

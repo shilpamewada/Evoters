@@ -7,11 +7,15 @@ import { VoterService } from '../voter.service';
   styleUrls: ['./appheader.component.css']
 })
 export class AppheaderComponent {
-  constructor(
-    private voter: VoterService
-  ) {}
+  isMenuActive: boolean = false;
 
-  routeToLink(link: string): void {
-    this.voter.navigateToLink(link);
+  constructor(private voterService: VoterService) {}
+
+  logout(): void {
+    this.voterService.userLogout(); // Call the userLogout method from VoterService
+  }
+
+  toggleMenu(): void {
+    this.isMenuActive = !this.isMenuActive;
   }
 }

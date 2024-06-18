@@ -1,30 +1,29 @@
-<!-- <header><a class="logo"><img class="brand-logo" src="../../assets/logoo.jpg" alt="logo"></a>
-    <nav>
-        <div class="nav-items">
-            <div (click)="routeToLink('')">Home</div>
-            <div (click)="routeToLink('login')">Login</div>
-            <div (click)="routeToLink('register')">Register</div>
-            <div (click)="routeToLink('aboutus')">About Us</div>
-            <div (click)="routeToLink('contact')">Contact Us</div>
+<nav>
+    <div class="navbar">
+      <div class="logo">
+        <img src="https://voters.eci.gov.in/static/media/Portallogo.239672214918b407e9c7d3e4312b8ac4.svg" alt="HomeImage" class="logo-image">
+        <div class="logo-texts">
+          <div>मतदाता सेवा पोर्टल</div>
+          <div>VOTERS’ SERVICE PORTAL</div>
         </div>
-    </nav>
-</header> -->
-
-
-    <header class="header">
-        <div class="logo">
-            <img class="brand-logo" src="../../assets/logo1.jpg" alt="logo">
-        </div>
-        <nav class="nav-items">
-            <i class="fa fa-home" style="color: rgb(0, 0, 0);"></i>
-            <div class="head" (click)="routeToLink('')">Home</div>
-            <i class="fa fa-question-circle" style="color: black;"></i>
-            <div class="head" (click)="routeToLink('login')">Login</div>
-            <i class="fa fa-user-circle" style="color: black"></i>
-            <div class="head" (click)="routeToLink('register')">Register</div>
-            <i class="fa fa-thin fa-address-card" style="color: black;"></i>
-            <div class="head" (click)="routeToLink('aboutus')">About Us</div>
-            <i class="fa fa-mobile" style="color: black"></i>
-            <div class="head" (click)="routeToLink('contact')">Contact Us</div>
-        </nav>
-    </header>
+      </div>
+      <div class="menu-toggle" (click)="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" [ngClass]="{ 'active': isMenuActive }">
+        <li><a routerLink="/" (click)="toggleMenu()"><i class="fas fa-home"></i> Home</a></li>
+        <li><a routerLink="/works" (click)="toggleMenu()"><i class="fas fa-check-circle"></i> How It Works</a></li>
+        <li><a routerLink="/aboutus" (click)="toggleMenu()"><i class="fas fa-address-book"></i> About Us</a></li>
+        <li><a routerLink="/contact" (click)="toggleMenu()"><i class="fas fa-address-book"></i> Contact Us</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0);" class="dropbtn"><i class="fas fa-bars"></i></a>
+          <div class="dropdown-content">
+            <a routerLink="/login" (click)="toggleMenu()"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a routerLink="/register" (click)="toggleMenu()"><i class="fas fa-user-plus"></i> Sign up</a>
+            <a href="javascript:void(0);" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
